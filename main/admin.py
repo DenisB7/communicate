@@ -1,12 +1,13 @@
 from django.contrib import admin
 
-from main.models import Profile, MessagesUnread
+from main.models import Profile, Messages
 
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(MessagesUnread)
-class MessagesUnreadAdmin(admin.ModelAdmin):
+
+@admin.register(Messages)
+class MessagesAdmin(admin.ModelAdmin):
     pass

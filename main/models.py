@@ -13,11 +13,13 @@ class Profile(models.Model):
         return self.user
 
 
-class MessagesUnread(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
-    student_unread_count = models.IntegerField()
-    teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='teacher')
-    teacher_unread_count = models.IntegerField()
+class Messages(models.Model):
+    student = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='student')
+    to_teacher = models.TextField()
+    teacher_read = models.BooleanField()
+    teacher = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='teacher')
+    to_student = models.TextField()
+    student_read = models.BooleanField()
 
     def __str__(self) -> str:
-        return f"Student: {self.student.username}, Teacher: {self.teacher.username}"
+        return f"Student: {self.student.username} Teacher: {self.teacher.username}"
