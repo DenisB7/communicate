@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_teacher = models.BooleanField(default=False)
-    teacher_online = models.IntegerField(default=0)
+    teacher_online = models.PositiveIntegerField(default=0, blank=True)
     is_student = models.BooleanField(default=False)
-    student_online = models.IntegerField(default=0)
+    student_online = models.PositiveIntegerField(default=0, blank=True)
 
     def __str__(self) -> str:
         return self.user
@@ -15,10 +15,10 @@ class Profile(models.Model):
 
 class Messages(models.Model):
     student = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='student')
-    to_teacher = models.TextField()
+    to_teacher = models.TextField(blank=True)
     teacher_read = models.BooleanField()
     teacher = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='teacher')
-    to_student = models.TextField()
+    to_student = models.TextField(blank=True)
     student_read = models.BooleanField()
 
     def __str__(self) -> str:
