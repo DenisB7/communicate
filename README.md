@@ -1,4 +1,4 @@
-Basic version of chat only for one teacher and one student.
+Basic version of chat only for one teacher and one student (create student and teacher on admin page)
 
 But:
 1. It count unread messages
