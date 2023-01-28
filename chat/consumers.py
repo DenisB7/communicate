@@ -42,11 +42,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def set_user_online(self):
         profile = Profile.objects.filter(user_id=self.scope["user"].pk)
+        messages = Messages.objects.all()
         if profile.first().is_teacher:
-            Messages.objects.filter(teacher_id=profile[0].pk).update(teacher_read=True)
+            messages.update(teacher_read=True)
             profile.update(teacher_online=1)
         elif profile.first().is_student:
-            Messages.objects.filter(student_id=profile[0].pk).update(student_read=True)
+            messages.update(student_read=True)
             profile.update(student_online=1)
 
     @database_sync_to_async
