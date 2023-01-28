@@ -16,9 +16,14 @@ def index(request):
         if unread_messages:
             context = {
                 'user_is_authenticated': request.user.is_authenticated,
+                'user_is_staff': request.user.is_superuser,
                 'unread_messages_count': unread_messages,
                 'room_name': 'test',
             }
             return render(request, "main/index.html", context)
 
-    return render(request, "main/index.html", {'user_is_authenticated': request.user.is_authenticated})
+    context = {
+        'user_is_authenticated': request.user.is_authenticated, 
+        'user_is_staff': request.user.is_superuser,
+    }
+    return render(request, "main/index.html", context)

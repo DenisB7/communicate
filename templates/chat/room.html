@@ -6,7 +6,7 @@
 </head>
 <body>
     {% if user_is_authenticated  %}
-    <span style="text-align: center;"> Logout the chat Page <a href = "{% url 'logout-user' %}">Logout</a></span>
+    <span style="text-align: center;"> Logout the chat Page <a href="{% url 'logout-user' %}">Logout</a></span>
     {% endif %}
     <textarea id="chat-log" cols="100" rows="20"></textarea><br>
     <input id="chat-message-input" type="text" size="100"><br>
