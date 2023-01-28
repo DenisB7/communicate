@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = "main"
+LOGOUT_REDIRECT_URL = "login-user"
 
 # Application definition
 
