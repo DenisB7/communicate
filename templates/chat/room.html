@@ -5,12 +5,19 @@
     <title>Chat Room</title>
 </head>
 <body>
+    <h1 style="text-align: center;">{{ username }}</h1>
     {% if user_is_authenticated  %}
-    <span style="text-align: center;"> Logout the chat Page <a href="{% url 'logout-user' %}">Logout</a></span>
+    <div style="text-align: center;">
+        <a href="{% url 'logout-user' %}">Logout</a> 
+        or
+        <a href="{% url 'main' %}">Go to main page</a>
+    </div>
     {% endif %}
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <div style="text-align: center;">
+        <textarea id="chat-log" cols="100" rows="20"></textarea><br>
+        <input id="chat-message-input" type="text" size="100"><br>
+        <input id="chat-message-submit" type="button" value="Send">
+    </div>
     {{ room_name|json_script:"room-name" }}
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);

@@ -15,6 +15,7 @@ def index(request):
         unread_messages = Messages.objects.filter(**messages_filter).count()
         if unread_messages:
             context = {
+                'username': request.user.username,
                 'user_is_authenticated': request.user.is_authenticated,
                 'user_is_staff': request.user.is_superuser,
                 'unread_messages_count': unread_messages,
@@ -23,6 +24,7 @@ def index(request):
             return render(request, "main/index.html", context)
 
     context = {
+        'username': request.user.username,
         'user_is_authenticated': request.user.is_authenticated, 
         'user_is_staff': request.user.is_superuser,
         'room_name': 'test',
