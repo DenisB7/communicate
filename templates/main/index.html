@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {% if user_is_authenticated %}
+        {% if unread_messages_count %}
+        <p style="text-align: center;">You have {{ unread_messages_count }} unread messages</p>
+        {% else %}
+        <p style="text-align: center;">You have no unread messages</p>
+        {% endif %}
+        <a href = "{% url 'room' room_name %}" style="text-align: center;">Go to chat room</a>
+    {% else %}
+        <p>To chat, please login</p>
+        <a href = "{% url 'login-user' %}" style="text-align: center;">Login</a>
+    {% endif %}
+</body>
+</html>
