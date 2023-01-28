@@ -10,7 +10,12 @@ class Profile(models.Model):
     student_online = models.PositiveIntegerField(default=0, blank=True)
 
     def __str__(self) -> str:
-        return self.user
+        if self.is_teacher:
+            return f"Teacher: {self.user.username}"
+        elif self.is_student:
+            return f"Student: {self.user.username}"
+        else:
+            return f"Please set {self.user.username} as a teacher or student"
 
 
 class Messages(models.Model):

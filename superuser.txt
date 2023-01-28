@@ -1,3 +1,0 @@
-name: admin
-email: b@e.com
-password: 12345
