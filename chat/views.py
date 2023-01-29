@@ -8,7 +8,7 @@ from main.models import Messages
 
 @login_required
 def room(request, room_name):
-    old_messages = Messages.objects.all()
+    old_messages = Messages.objects.all() or ""
     if old_messages:
         old_messages = '\n'.join(message.message for message in old_messages)
     context = {
