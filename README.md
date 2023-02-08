@@ -1,6 +1,6 @@
 Was built in fast pace
 
-Basic version of chat, using Django Channels, only for one teacher and one student (create student and teacher on admin page)
+Basic version of chat, using web sockets library Django Channels, only for one teacher and one student (create student and teacher on admin page)
 
 But, in addition to exchanging  messages while both are online, it has:
 1. It count unread messages
